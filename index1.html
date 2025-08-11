@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هوشیاری فیت - باشگاه بدنسازی رادین</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
+        
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .ai-chat {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .schedule-item {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .shop-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .shop-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-2 rounded-full">
+                        <i class="fas fa-dumbbell text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-black text-gray-800">هوشیاری فیت</h1>
+                        <p class="text-sm text-gray-600">باشگاه بدنسازی رادین</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="#schedule" class="text-gray-700 hover:text-purple-600 transition-colors">برنامه باشگاه</a>
+                    <a href="#shop" class="text-gray-700 hover:text-purple-600 transition-colors">فروشگاه</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors">درباره ما</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">تماس با ما</a>
+                </nav>
+                
+                <!-- Auth Buttons -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button onclick="showLogin()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">ورود</button>
+                    <button onclick="showRegister()" class="border border-purple-600 text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">عضویت</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-6xl font-black mb-4">رادین</h1>
+            <p class="text-2xl mb-8 font-bold">قوی بودن یک انتخاب است، انتخاب کن ما کنارت هستیم</p>
+            <button onclick="showRegister()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:shadow-2xl transition-all transform hover:scale-105">
+                همین حالا شروع کن
+            </button>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 text-gray-800">برنامه کلاس‌های باشگاه</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">کلاس پیلاتس</h3>
+                    <p class="mb-2">روزهای زوج</p>
+                    <p class="text-lg font-bold">۸:۰۰ - ۹:۰۰</p>
+                </div>
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">کلاس TRX</h3>
+                    <p class="mb-2">روزهای زوج</p>
+                    <p class="text-lg font-bold">۱۰:۰۰ - ۱۱:۰۰</p>
+                </div>
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">کلاس فیتنس</h3>
+                    <p class="mb-2">روزهای فرد</p>
+                    <p class="text-lg font-bold">۸:۰۰ - ۹:۰۰</p>
+                </div>
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">ایروبیکس</h3>
+                    <p class="mb-2">روزهای فرد</p>
+                    <p class="text-lg font-bold">۱۴:۰۰ - ۱۵:۰۰</p>
+                </div>
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">کلاس تورک</h3>
+                    <p class="mb-2">چهارشنبه</p>
+                    <p class="text-lg font-bold">۱۳:۰۰ - ۱۴:۳۰</p>
+                </div>
+                <div class="schedule-item p-6 rounded-xl text-white">
+                    <h3 class="text-xl font-bold mb-2">کلاس هیلز</h3>
+                    <p class="mb-2">جمعه</p>
+                    <p class="text-lg font-bold">۱۹:۰۰ - ۲۰:۰۰</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 text-gray-800">فروشگاه</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="shop-item bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl text-center mb-4">👕</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">لباس ورزشی</h3>
+                    <p class="text-gray-600 text-center mb-4">انواع لباس‌های ورزشی با کیفیت</p>
+                    <button onclick="addToCart('لباس ورزشی', 250000)" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        از ۲۵۰,۰۰۰ تومان
+                    </button>
+                </div>
+                <div class="shop-item bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl text-center mb-4">🚰</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">قمقمه</h3>
+                    <p class="text-gray-600 text-center mb-4">قمقمه‌های ورزشی مقاوم</p>
+                    <button onclick="addToCart('قمقمه', 85000)" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        ۸۵,۰۰۰ تومان
+                    </button>
+                </div>
+                <div class="shop-item bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl text-center mb-4">💊</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">مکمل‌ها</h3>
+                    <p class="text-gray-600 text-center mb-4">انواع مکمل‌ها و ویتامین‌ها</p>
+                    <button onclick="addToCart('مکمل', 180000)" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        از ۱۸۰,۰۰۰ تومان
+                    </button>
+                </div>
+                <div class="shop-item bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl text-center mb-4">📚</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">کتاب‌های ورزشی</h3>
+                    <p class="text-gray-600 text-center mb-4">کتاب‌های مربیگری و روانشناسی</p>
+                    <button onclick="addToCart('کتاب', 120000)" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        از ۱۲۰,۰۰۰ تومان
+                    </button>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button onclick="showCart()" class="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors">
+                    <i class="fas fa-shopping-cart ml-2"></i>
+                    مشاهده سبد خرید
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Music Player Icon -->
+    <div class="fixed bottom-6 left-6 z-50">
+        <button onclick="openMusicPlayer()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all transform hover:scale-110 animate-pulse">
+            <i class="fas fa-music text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- AI Assistant Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 text-gray-800">دستیار هوشمند</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-100 rounded-xl p-6">
+                    <div id="aiChat" class="ai-chat mb-4 h-64 overflow-y-auto bg-white rounded-lg p-4">
+                        <div class="text-center text-gray-500">سوال خود را بپرسید...</div>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="aiInput" placeholder="سوال خود را اینجا بنویسید..." class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        <button onclick="sendAIMessage()" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12">درباره ما</h2>
+            <div class="max-w-4xl mx-auto text-lg leading-relaxed">
+                <p class="mb-6">
+                    در هوشیاری فیت، ما فراتر از یک باشگاه بدنسازی هستیم؛ ما خانه‌ای برای تحول، تعهد و موفقیت هستیم! تحت رهبری خانم لیدا هوشیاری، مربی حرفه‌ای و ورزشکار برجسته بدنسازی، تیمی متعهد آماده است تا شما را به بهترین نسخه خودتان تبدیل کند.
+                </p>
+                <p class="mb-6">
+                    خانم هوشیاری با بدنی ورزیده و سال‌ها تجربه در بالاترین سطح ورزش حرفه‌ای، تمامی تخصص‌های مربی‌گری را در اختیار دارد. از طراحی برنامه‌های ورزشی و تغذیه‌ای حرفه‌ای بر اساس آنالیز دقیق بدن، تا همراهی مادران باردار و افرادی با چالش‌های فرم بدنی، او با دقت و تعهد بی‌نظیر، مسیری منحصربه‌فرد برای هر فرد ترسیم می‌کند.
+                </p>
+                <p>
+                    در هوشیاری فیت، ما به تغییر باور داریم. با برنامه‌های علمی و شخصی‌سازی‌شده، همراه با روحیه‌ای انگیزشی و اخلاق حرفه‌ای، در کنار شما هستیم تا نه‌تنها بدن، بلکه ذهن و زندگی‌تان را قوی‌تر کنید. به ما بپیوندید و داستان موفقیت خود را بنویسید!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 text-gray-800">خدمات ویژه</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-user-tie text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">مشاوره مربیگری</h3>
+                    <p class="text-gray-600 mb-4">مشاوره تخصصی برای مربیگری و افتتاح باشگاه</p>
+                    <button onclick="showConsultation()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        درخواست مشاوره
+                    </button>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-music text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">موزیک باشگاه</h3>
+                    <p class="text-gray-600 mb-4">آهنگ‌های انگیزشی مخصوص تمرین</p>
+                    <button onclick="showMusic()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        پخش موزیک
+                    </button>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-utensils text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">آموزش تغذیه</h3>
+                    <p class="text-gray-600 text-center mb-4">آموزش پخت غذاهای سالم و مقوی</p>
+                    <button onclick="showNutrition()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        مشاهده دستور العمل‌ها
+                    </button>
+                </div>
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-newspaper text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">اخبار ورزشی</h3>
+                    <p class="text-gray-600 text-center mb-4">آخرین اخبار بدنسازی و تحقیقات</p>
+                    <button onclick="showNews()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        مطالعه اخبار
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center mb-12 text-gray-800">تماس با ما</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">اطلاعات تماس</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-purple-600 text-xl ml-3"></i>
+                            <span class="text-lg">۰۹۳۸۲۷۸۰۲۸۷</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-purple-600 text-xl ml-3"></i>
+                            <span class="text-lg">Hoshyarifit@gmail.com</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-purple-600 text-xl ml-3 mt-1"></i>
+                            <span class="text-lg">شهر پرند، فاز صفر، بلوار چهارباغ، خیابان ورزش، مجموعه الغدیر</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-instagram text-purple-600 text-xl ml-3"></i>
+                            <a href="https://www.instagram.com/raadingym/profilecard/?igsh=MWoyaDVqeHFkaHMwbg==" target="_blank" class="text-lg text-purple-600 hover:underline">@raadingym</a>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://maps.app.goo.gl/4Wpd1FEQcQKDXVis5?g_st=am" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors inline-block">
+                            <i class="fas fa-map-marked-alt ml-2"></i>
+                            مشاهده در نقشه
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">پیام بگذارید</h3>
+                    <form onsubmit="sendMessage(event)" class="space-y-4">
+                        <input type="text" placeholder="نام و نام خانوادگی" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                        <input type="email" placeholder="ایمیل" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                        <textarea placeholder="پیام شما" rows="5" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" required></textarea>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            ارسال پیام
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">هوشیاری فیت</h3>
+                    <p class="text-gray-300">باشگاه بدنسازی حرفه‌ای با مربیان مجرب</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">لینک‌های مفید</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.iranbbf.ir/" target="_blank" class="text-gray-300 hover:text-white transition-colors">فدراسیون بدنسازی ایران</a></li>
+                        <li><a href="#" onclick="showExamInfo()" class="text-gray-300 hover:text-white transition-colors">آزمون مربیگری</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">شبکه‌های اجتماعی</h3>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/raadingym/profilecard/?igsh=MWoyaDVqeHFkaHMwbg==" target="_blank" class="text-2xl hover:text-purple-400 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; ۱۴۰۳ هوشیاری فیت. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold mb-6 text-center">ورود به حساب کاربری</h2>
+            <form onsubmit="login(event)">
+                <input type="email" placeholder="ایمیل" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <input type="password" placeholder="رمز عبور" class="w-full p-3 border rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors mb-4">ورود</button>
+                <button type="button" onclick="closeModal('loginModal')" class="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition-colors">انصراف</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold mb-6 text-center">عضویت در باشگاه</h2>
+            <form onsubmit="register(event)">
+                <input type="text" placeholder="نام و نام خانوادگی" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <input type="email" placeholder="ایمیل" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <input type="tel" placeholder="شماره تماس" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <input type="password" placeholder="رمز عبور" class="w-full p-3 border rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors mb-4">عضویت</button>
+                <button type="button" onclick="closeModal('registerModal')" class="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition-colors">انصراف</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Music Player Modal -->
+    <div id="musicModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-gradient-to-r from-purple-900 to-pink-900 text-white p-8 rounded-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold">🎵 موزیک باشگاه</h2>
+                <button onclick="closeModal('musicModal')" class="text-white hover:text-gray-300 text-2xl">✕</button>
+            </div>
+            
+            <!-- Current Song Display -->
+            <div id="currentSongDisplay" class="text-center mb-6">
+                <h3 class="text-xl font-bold mb-2">آماده پخش موزیک انگیزشی</h3>
+                <p class="text-purple-200">برای شروع تمرین، یک آهنگ انتخاب کنید</p>
+            </div>
+            
+            <!-- Audio Player -->
+            <div class="mb-6">
+                <audio id="gymAudioPlayer" class="w-full" controls style="filter: sepia(1) hue-rotate(240deg) saturate(2);">
+                    <source src="" type="audio/mpeg">
+                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+            
+            <!-- Player Controls -->
+            <div class="flex justify-center items-center space-x-4 space-x-reverse mb-6">
+                <button onclick="previousSong()" class="bg-purple-600 hover:bg-purple-700 p-3 rounded-full text-xl transition-colors">⏮️</button>
+                <button id="playPauseBtn" onclick="togglePlayPause()" class="bg-pink-600 hover:bg-pink-700 p-4 rounded-full text-2xl transition-colors">▶️</button>
+                <button onclick="nextSong()" class="bg-purple-600 hover:bg-purple-700 p-3 rounded-full text-xl transition-colors">⏭️</button>
+                <button onclick="shufflePlaylist()" class="bg-purple-600 hover:bg-purple-700 p-3 rounded-full text-lg transition-colors">🔀</button>
+            </div>
+            
+            <!-- Volume Control -->
+            <div class="flex items-center justify-center space-x-4 space-x-reverse mb-6">
+                <span>🔊</span>
+                <input type="range" id="volumeControl" min="0" max="100" value="70" class="w-32" onchange="changeVolume()">
+                <span id="volumeDisplay">70%</span>
+            </div>
+            
+            <!-- Playlist -->
+            <div class="bg-black bg-opacity-20 rounded-lg p-4">
+                <h4 class="text-lg font-bold mb-4 text-center">🎼 پلی‌لیست باشگاه</h4>
+                <div id="playlist" class="space-y-2 max-h-48 overflow-y-auto">
+                    <div class="playlist-item flex items-center justify-between p-2 rounded-lg hover:bg-white hover:bg-opacity-10 cursor-pointer transition-colors" onclick="playSong(0)">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <span class="text-xl">🎵</span>
+                            <div>
+                                <p class="font-bold text-sm">Eye of the Tiger</p>
+                                <p class="text-xs text-purple-200">Survivor</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-200 text-sm">3:35</span>
+                    </div>
+                    <div class="playlist-item flex items-center justify-between p-2 rounded-lg hover:bg-white hover:bg-opacity-10 cursor-pointer transition-colors" onclick="playSong(1)">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <span class="text-xl">🎵</span>
+                            <div>
+                                <p class="font-bold text-sm">Stronger</p>
+                                <p class="text-xs text-purple-200">Kanye West</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-200 text-sm">5:11</span>
+                    </div>
+                    <div class="playlist-item flex items-center justify-between p-2 rounded-lg hover:bg-white hover:bg-opacity-10 cursor-pointer transition-colors" onclick="playSong(2)">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <span class="text-xl">🎵</span>
+                            <div>
+                                <p class="font-bold text-sm">Till I Collapse</p>
+                                <p class="text-xs text-purple-200">Eminem</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-200 text-sm">4:57</span>
+                    </div>
+                    <div class="playlist-item flex items-center justify-between p-2 rounded-lg hover:bg-white hover:bg-opacity-10 cursor-pointer transition-colors" onclick="playSong(3)">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <span class="text-xl">🎵</span>
+                            <div>
+                                <p class="font-bold text-sm">Lose Yourself</p>
+                                <p class="text-xs text-purple-200">Eminem</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-200 text-sm">5:26</span>
+                    </div>
+                    <div class="playlist-item flex items-center justify-between p-2 rounded-lg hover:bg-white hover:bg-opacity-10 cursor-pointer transition-colors" onclick="playSong(4)">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <span class="text-xl">🎵</span>
+                            <div>
+                                <p class="font-bold text-sm">We Will Rock You</p>
+                                <p class="text-xs text-purple-200">Queen</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-200 text-sm">2:02</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upload Instructions -->
+            <div class="mt-6 text-center">
+                <button onclick="showUploadInstructions()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                    📁 راهنمای آپلود موزیک
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Shopping Cart
+        let cart = [];
+        
+        function addToCart(item, price) {
+            cart.push({item, price});
+            alert(`${item} به سبد خرید اضافه شد!`);
+        }
+        
+        function showCart() {
+            if (cart.length === 0) {
+                alert('سبد خرید شما خالی است!');
+                return;
+            }
+            
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let cartItems = cart.map(item => `${item.item}: ${item.price.toLocaleString()} تومان`).join('\n');
+            
+            if (confirm(`سبد خرید شما:\n${cartItems}\n\nمجموع: ${total.toLocaleString()} تومان\n\nآیا می‌خواهید پرداخت کنید؟`)) {
+                // Simulate payment gateway
+                alert('در حال انتقال به درگاه پرداخت...\n(این یک نمونه آزمایشی است)');
+                cart = [];
+            }
+        }
+        
+        // Music Player Variables
+        let currentSongIndex = 0;
+        let isPlaying = false;
+        let isShuffled = false;
+        
+        const playlist = [
+            { title: "Eye of the Tiger", artist: "Survivor", duration: "3:35", file: "music/eye-of-the-tiger.mp3" },
+            { title: "Stronger", artist: "Kanye West", duration: "5:11", file: "music/stronger.mp3" },
+            { title: "Till I Collapse", artist: "Eminem", duration: "4:57", file: "music/till-i-collapse.mp3" },
+            { title: "Lose Yourself", artist: "Eminem", duration: "5:26", file: "music/lose-yourself.mp3" },
+            { title: "We Will Rock You", artist: "Queen", duration: "2:02", file: "music/we-will-rock-you.mp3" }
+        ];
+        
+        function showMusic() {
+            openMusicPlayer();
+        }
+        
+        function openMusicPlayer() {
+            document.getElementById('musicModal').classList.remove('hidden');
+            document.getElementById('musicModal').classList.add('flex');
+        }
+        
+        function playSong(index) {
+            currentSongIndex = index;
+            const song = playlist[index];
+            const audioPlayer = document.getElementById('gymAudioPlayer');
+            const currentSongDisplay = document.getElementById('currentSongDisplay');
+            
+            // Update display
+            currentSongDisplay.innerHTML = `
+                <h3 class="text-2xl font-bold mb-2">${song.title}</h3>
+                <p class="text-purple-200">${song.artist} - ${song.duration}</p>
+            `;
+            
+            // Set audio source (Note: This is demo - actual files need to be uploaded)
+            audioPlayer.src = song.file;
+            
+            // Highlight current song in playlist
+            document.querySelectorAll('.playlist-item').forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('bg-white', 'bg-opacity-20');
+                } else {
+                    item.classList.remove('bg-white', 'bg-opacity-20');
+                }
+            });
+            
+            // Show demo message since files don't exist yet
+            alert(`در حال پخش: ${song.title} - ${song.artist}\n\n(نکته: برای پخش واقعی، فایل‌های موزیک باید آپلود شوند)`);
+        }
+        
+        function togglePlayPause() {
+            const audioPlayer = document.getElementById('gymAudioPlayer');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▶️';
+                isPlaying = false;
+            } else {
+                audioPlayer.play().catch(() => {
+                    alert('برای پخش موزیک، ابتدا فایل‌های صوتی را آپلود کنید.');
+                });
+                playPauseBtn.textContent = '⏸️';
+                isPlaying = true;
+            }
+        }
+        
+        function previousSong() {
+            currentSongIndex = currentSongIndex > 0 ? currentSongIndex - 1 : playlist.length - 1;
+            playSong(currentSongIndex);
+        }
+        
+        function nextSong() {
+            currentSongIndex = currentSongIndex < playlist.length - 1 ? currentSongIndex + 1 : 0;
+            playSong(currentSongIndex);
+        }
+        
+        function shufflePlaylist() {
+            isShuffled = !isShuffled;
+            if (isShuffled) {
+                currentSongIndex = Math.floor(Math.random() * playlist.length);
+                playSong(currentSongIndex);
+                alert('حالت تصادفی فعال شد! 🔀');
+            } else {
+                alert('حالت تصادفی غیرفعال شد.');
+            }
+        }
+        
+        function changeVolume() {
+            const volumeControl = document.getElementById('volumeControl');
+            const volumeDisplay = document.getElementById('volumeDisplay');
+            const audioPlayer = document.getElementById('gymAudioPlayer');
+            
+            const volume = volumeControl.value;
+            audioPlayer.volume = volume / 100;
+            volumeDisplay.textContent = volume + '%';
+        }
+        
+        function showUploadInstructions() {
+            alert(`📁 راهنمای آپلود موزیک:\n\n1️⃣ فایل‌های MP3 خود را آماده کنید\n2️⃣ یک پوشه به نام "music" در کنار فایل HTML بسازید\n3️⃣ فایل‌ها را با نام‌های زیر در پوشه music قرار دهید:\n\n🎵 eye-of-the-tiger.mp3\n🎵 stronger.mp3\n🎵 till-i-collapse.mp3\n🎵 lose-yourself.mp3\n🎵 we-will-rock-you.mp3\n\n4️⃣ برای اضافه کردن آهنگ جدید، لیست playlist را در کد تغییر دهید\n\n💡 نکته: فایل‌های موزیک باید کپی‌رایت آزاد باشند یا مجوز استفاده داشته باشید.\n\n📂 ساختار پوشه:\nindex.html\nmusic/\n  ├── eye-of-the-tiger.mp3\n  ├── stronger.mp3\n  └── ...`);
+        }
+        
+        // AI Assistant
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const chat = document.getElementById('aiChat');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            chat.innerHTML += `<div class="mb-2 text-right"><span class="bg-purple-600 text-white px-3 py-2 rounded-lg inline-block">${message}</span></div>`;
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const responses = [
+                    'سلام! چطور می‌تونم کمکتون کنم؟',
+                    'برای شروع تمرین، توصیه می‌کنم ابتدا با مربی مشورت کنید.',
+                    'تغذیه سالم ۷۰٪ موفقیت در بدنسازی رو تشکیل می‌ده.',
+                    'برای کاهش وزن، ترکیب تمرین قدرتی و کاردیو بهترین روشه.',
+                    'استراحت کافی برای رشد عضلات خیلی مهمه.'
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                chat.innerHTML += `<div class="mb-2 text-left"><span class="bg-gray-200 text-gray-800 px-3 py-2 rounded-lg inline-block">${randomResponse}</span></div>`;
+                chat.scrollTop = chat.scrollHeight;
+            }, 1000);
+            
+            input.value = '';
+            chat.scrollTop = chat.scrollHeight;
+        }
+        
+        // Modal Functions
+        function showLogin() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+        }
+        
+        function showRegister() {
+            document.getElementById('registerModal').classList.remove('hidden');
+            document.getElementById('registerModal').classList.add('flex');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.getElementById(modalId).classList.remove('flex');
+        }
+        
+        function login(event) {
+            event.preventDefault();
+            alert('ورود موفقیت‌آمیز بود! (نمونه آزمایشی)');
+            closeModal('loginModal');
+        }
+        
+        function register(event) {
+            event.preventDefault();
+            alert('عضویت با موفقیت انجام شد! (نمونه آزمایشی)');
+            closeModal('registerModal');
+        }
+        
+        function sendMessage(event) {
+            event.preventDefault();
+            alert('پیام شما ارسال شد! به زودی با شما تماس خواهیم گرفت.');
+            event.target.reset();
+        }
+        
+        // Service Functions
+        function showConsultation() {
+            alert('برای مشاوره مربیگری و افتتاح باشگاه با شماره ۰۹۳۸۲۷۸۰۲۸۷ تماس بگیرید.');
+        }
+        
+        function showNutrition() {
+            alert('دستور العمل غذای سالم:\n\n🥗 سالاد پروتئینی:\n- سینه مرغ گریل شده\n- سبزیجات تازه\n- آووکادو\n- روغن زیتون\n\n(برای دستور العمل‌های بیشتر با مربی تماس بگیرید)');
+        }
+        
+        function showNews() {
+            alert('آخرین اخبار ورزشی:\n\n📰 مسابقات بدنسازی آسیا\n📰 تحقیقات جدید در تغذیه ورزشی\n📰 آزمون مربیگری بهار ۱۴۰۳\n\n(برای اطلاعات بیشتر به وب‌سایت فدراسیون مراجعه کنید)');
+        }
+        
+        function showExamInfo() {
+            alert('اطلاعات آزمون مربیگری:\n\n📅 تاریخ: اردیبهشت ۱۴۰۳\n📍 محل: تهران\n💰 هزینه: ۵۰۰,۰۰۰ تومان\n\nبرای ثبت‌نام با ما تماس بگیرید.');
+        }
+        
+        // Enter key for AI chat
+        document.getElementById('aiInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendAIMessage();
+            }
+        });
+        
+        // Close modals on outside click
+        window.onclick = function(event) {
+            const modals = ['loginModal', 'registerModal', 'musicModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    closeModal(modalId);
+                }
+            });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d9986980042a64',t:'MTc1NDkzNDgzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
